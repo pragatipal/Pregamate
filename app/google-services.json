@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "196097664652",
+    "project_id": "pragamate-da6ba",
+    "storage_bucket": "pragamate-da6ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196097664652:android:641a5d87513636754cfda9",
+        "android_client_info": {
+          "package_name": "com.example.pregamate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196097664652-b3l50o0oc05oqtfst0jfsq47ic3hjtq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pregamate",
+            "certificate_hash": "21a95547d1b697e25b548bc27249520c22ead16c"
+          }
+        },
+        {
+          "client_id": "196097664652-fopn8uomu0i3of6hrgqociuujd76j6cn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA18fQ4Vh0gUTSXjQt2mYoi4R8A08cmrlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196097664652-fopn8uomu0i3of6hrgqociuujd76j6cn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

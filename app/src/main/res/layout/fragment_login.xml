@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment"
+    android:background="@drawable/ic_background">
+
+    <TextView
+        android:id="@+id/signup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="180dp"
+        android:text="@string/login"
+        android:textColor="@color/dark_grey"
+        android:textSize="36sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_user_logo"
+        tools:ignore="ContentDescription,VectorDrawableCompat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+
+        <EditText
+            android:id="@+id/usernsme"
+            android:layout_width="392dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/ic_textbox"
+            android:hint="@string/username"
+            android:padding="16dp"
+            android:textSize="20sp"
+            android:importantForAutofill="no" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="394dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/ic_textbox"
+            android:hint="@string/password"
+            android:padding="16dp"
+            android:textSize="20sp"
+            android:inputType="textPassword"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="430dp"
+        android:clickable="true"
+        android:text="@string/forgot_password_underline"
+        android:textColor="@color/dark_grey"
+        android:textSize="18sp"
+        android:focusable="true" />
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="560dp"
+        android:background="@drawable/button"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_grey"
+        android:textSize="24sp"
+        app:backgroundTint="@color/white" />
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="27dp"
+        android:text="@string/login_text"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/login_link"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="700dp"
+        android:clickable="true"
+        android:text="@string/signup_underline"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="650dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_google"
+        tools:ignore="VectorDrawableCompat"
+        android:focusable="true" />
+
+
+</RelativeLayout>
