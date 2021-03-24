@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment"
+    tools:context=".fragments.LoginFragment"
     android:background="@drawable/ic_background">
 
     <TextView
@@ -40,9 +40,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/ic_textbox"
-            android:hint="@string/username"
+            android:hint="@string/email"
             android:padding="16dp"
             android:textSize="20sp"
+            android:inputType="textEmailAddress"
             android:importantForAutofill="no" />
 
         <EditText

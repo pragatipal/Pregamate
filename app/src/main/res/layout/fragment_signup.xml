@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupFragment"
+    tools:context=".fragments.SignupFragment"
     android:background="@drawable/ic_background">
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_centerInParent="true">
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/nameEt"
             android:layout_width="394dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -45,7 +45,7 @@
             android:inputType="textPersonName"/>
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/emailEt"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -57,19 +57,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/usernsme"
-            android:layout_width="392dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="4dp"
-            android:background="@drawable/ic_textbox"
-            android:hint="@string/username"
-            android:padding="16dp"
-            android:textSize="20sp"
-            android:importantForAutofill="no" />
-
-        <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordEt"
             android:layout_width="394dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -81,7 +69,7 @@
             android:inputType="textPassword"/>
 
         <EditText
-            android:id="@+id/confirm_password"
+            android:id="@+id/confirm_passwordEt"
             android:layout_width="395dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -95,7 +83,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/signup_button"
+        android:id="@+id/signupBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -119,7 +107,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/login_link"
+        android:id="@+id/loginTv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="230dp"
