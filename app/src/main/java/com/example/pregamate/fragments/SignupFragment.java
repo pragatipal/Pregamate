@@ -1,11 +1,13 @@
 package com.example.pregamate.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,17 +16,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.pregamate.FragmentReplacerActivity;
+import com.example.pregamate.MainActivity;
 import com.example.pregamate.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignupFragment extends Fragment {
 
     private EditText nameEt, emailEt,  passwordEt, confirm_passwordEt;
     private TextView loginTv;
     private Button signUpBtn;
+    private ProgressBar progressBar;
     private FirebaseAuth auth;
 
     public static final String EMAIL_REGEX = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
@@ -44,9 +53,8 @@ public class SignupFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        progressBar.setVisibility(View.GONE);
         init(view);
-
         clickListener();
     }
 
@@ -87,6 +95,8 @@ public class SignupFragment extends Fragment {
                     return;
                 }
 
+                progressBar.setVisibility(View.VISIBLE);
+
                 createAccount(name, email, password);
             }
         });
@@ -98,10 +108,40 @@ public class SignupFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            FirebaseUser user = auth.getCurrentUser();
+                            uploadUser(user,name,email);
+                        }
+                        else {
+                            progressBar.setVisibility(View.GONE);
+                            String exception = task.getException().getMessage();
+                            Toast.makeText(getContext(), "Error: "+ exception, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
 
-                        }else {
-                            String execption = task.getException().getMessage();
-                            Toast.makeText(getContext(), "Error: "+ execption, Toast.LENGTH_SHORT).show();
+    private void uploadUser(FirebaseUser user, String name, String email) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", name);
+        map.put("email", email);
+        map.put("profileImage", " ");
+        map.put("uid", user.getUid());
+
+        FirebaseFirestore.getInstance().collection("Users").document(user.getUid())
+                .set(map)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+
+                        if (task.isSuccessful()){
+                            assert getActivity() !=null;
+                            startActivity(new Intent(getActivity().getApplicationContext(), MainActivity.class));
+                            getActivity().finish();
+                        }
+                        else {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getContext(), "Error"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -113,7 +153,8 @@ public class SignupFragment extends Fragment {
         emailEt=view.findViewById(R.id.emailEt);
         passwordEt=view.findViewById(R.id.passwordEt);
         confirm_passwordEt=view.findViewById(R.id.confirm_passwordEt);
-
+        signUpBtn = view.findViewById(R.id.signupBtn);
+        progressBar= view.findViewById(R.id.progressbar);
         auth = FirebaseAuth.getInstance();
     }
 }
