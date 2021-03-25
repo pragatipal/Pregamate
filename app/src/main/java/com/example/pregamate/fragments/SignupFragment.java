@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class SignupFragment extends Fragment {
 
@@ -47,13 +48,18 @@ public class SignupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        progressBar = (ProgressBar) Objects.requireNonNull(getView()).findViewById(R.id.progressbar);
+        loginTv = (TextView) getView().findViewById(R.id.loginTv);
         return inflater.inflate(R.layout.fragment_signup, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        progressBar.setVisibility(View.GONE);
+
+
+//        progressBar.setVisibility(View.GONE);
         init(view);
         clickListener();
     }
@@ -63,7 +69,7 @@ public class SignupFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                ((FragmentReplacerActivity) getActivity()).setFragment(new LoginFragment());
+                ((FragmentReplacerActivity) Objects.requireNonNull(getActivity())).setFragment(new LoginFragment());
             }
         });
 
@@ -109,11 +115,12 @@ public class SignupFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser user = auth.getCurrentUser();
+                            assert user != null;
                             uploadUser(user,name,email);
                         }
                         else {
                             progressBar.setVisibility(View.GONE);
-                            String exception = task.getException().getMessage();
+                            String exception = Objects.requireNonNull(task.getException()).getMessage();
                             Toast.makeText(getContext(), "Error: "+ exception, Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -141,7 +148,7 @@ public class SignupFragment extends Fragment {
                         }
                         else {
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(getContext(), "Error"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -153,8 +160,6 @@ public class SignupFragment extends Fragment {
         emailEt=view.findViewById(R.id.emailEt);
         passwordEt=view.findViewById(R.id.passwordEt);
         confirm_passwordEt=view.findViewById(R.id.confirm_passwordEt);
-        signUpBtn = view.findViewById(R.id.signupBtn);
-        progressBar= view.findViewById(R.id.progressbar);
         auth = FirebaseAuth.getInstance();
     }
 }

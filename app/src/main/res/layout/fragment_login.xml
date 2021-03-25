@@ -73,7 +73,7 @@
         android:textSize="18sp"
         android:focusable="true" />
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/loginBtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -90,20 +90,21 @@
 
 
     <TextView
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="700dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginEnd="5dp"
         android:text="@string/login_text"
         android:textColor="@color/dark_grey"
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/login_link"
+        android:id="@+id/signupTv2"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginStart="250dp"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/textview"
         android:layout_marginTop="700dp"
         android:clickable="true"
         android:text="@string/signup_underline"

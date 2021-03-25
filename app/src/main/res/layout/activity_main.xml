@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@drawable/ic_background"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:id="@+id/mainContainer">
 
     <TextView
         android:id="@+id/app_name"
@@ -14,48 +15,58 @@
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:text="@string/app_name"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:textColor="@color/dark_grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_logo"
-        app:layout_constraintVertical_bias="0.041" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
-        android:contentDescription="Pregamate"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logo" />
+        android:contentDescription="@string/app_name"
+        app:srcCompat="@drawable/logo"
+        android:layout_centerHorizontal="true" />
+
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/loginBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
+        android:background="@drawable/button"
         android:fontFamily="sans-serif-light"
         android:text="@string/login"
-        android:background="@drawable/button"
         android:textAllCaps="false"
         android:textColor="@color/dark_grey"
         android:textSize="24sp"
         app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name"
-        app:layout_constraintVertical_bias="0.964" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="500dp"/>
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="700dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/login_text"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/signupTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="700dp"
+        android:layout_toEndOf="@+id/textview"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/signup_underline"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp" />
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

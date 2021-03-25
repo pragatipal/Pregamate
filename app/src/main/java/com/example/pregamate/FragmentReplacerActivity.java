@@ -20,9 +20,6 @@ public class FragmentReplacerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragment_replacer);
 
         frameLayout= findViewById(R.id.frameLayout);
-
-
-
         setFragment(new LoginFragment());
 
     }

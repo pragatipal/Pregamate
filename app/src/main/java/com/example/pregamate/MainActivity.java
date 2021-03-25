@@ -3,25 +3,41 @@ package com.example.pregamate;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.pregamate.fragments.LoginFragment;
+import com.example.pregamate.fragments.SignupFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button loginButton;
+    Button loginBtn;
+    TextView signupTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loginButton= findViewById(R.id.login_button);
+        loginBtn= findViewById(R.id.loginBtn);
+        signupTv=(TextView) this.findViewById(R.id.signupTv);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loginBtn.setVisibility(View.GONE);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.mainContainer, new LoginFragment()).commit();
+            }
+        });
+        signupTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                signupTv.setVisibility(View.GONE);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.mainContainer, new SignupFragment()).commit();
             }
         });
     }
