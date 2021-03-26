@@ -37,8 +37,6 @@ public class SignupFragment extends Fragment {
     private ProgressBar progressBar;
     private FirebaseAuth auth;
 
-//    public static final Pattern EMAIL_REGEX =
-//            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     public SignupFragment() {
         // Required empty public constructor
@@ -64,7 +62,7 @@ public class SignupFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                ((FragmentReplacerActivity) Objects.requireNonNull(getActivity())).setFragment(new LoginFragment());
+                ((FragmentReplacerActivity) getActivity()).setFragment(new LoginFragment());
             }
         });
 
