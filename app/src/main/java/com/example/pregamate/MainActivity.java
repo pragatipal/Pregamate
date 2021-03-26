@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 loginBtn.setVisibility(View.GONE);
+                signupTv.setVisibility(View.GONE);
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.mainContainer, new LoginFragment()).commit();
             }
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 signupTv.setVisibility(View.GONE);
+                loginBtn.setVisibility(View.GONE);
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.mainContainer, new SignupFragment()).commit();
             }

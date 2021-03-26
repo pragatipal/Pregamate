@@ -64,13 +64,13 @@
     <TextView
         android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
         android:layout_marginTop="430dp"
         android:clickable="true"
         android:text="@string/forgot_password_underline"
         android:textColor="@color/dark_grey"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:focusable="true" />
     <Button
         android:id="@+id/loginBtn2"
@@ -87,40 +87,57 @@
         app:backgroundTint="@color/white" />
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="700dp"
-        android:layout_marginEnd="5dp"
-        android:text="@string/login_text"
-        android:textColor="@color/dark_grey"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_text"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.141"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/signupTv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/textview"
-        android:layout_marginTop="700dp"
-        android:clickable="true"
-        android:text="@string/signup_underline"
-        android:textColor="@color/dark_grey"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/signupTv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@+id/textview"
+            android:clickable="true"
+            android:text="@string/signup_underline"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="650dp"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_google"
-        tools:ignore="VectorDrawableCompat"
-        android:focusable="true" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_centerHorizontal="true"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@+id/textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.958"
+            app:srcCompat="@drawable/ic_google"
+            tools:ignore="VectorDrawableCompat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </RelativeLayout>

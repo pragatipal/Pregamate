@@ -37,20 +37,16 @@ public class SignupFragment extends Fragment {
     private ProgressBar progressBar;
     private FirebaseAuth auth;
 
-    public static final String EMAIL_REGEX = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+//    public static final Pattern EMAIL_REGEX =
+//            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     public SignupFragment() {
         // Required empty public constructor
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        progressBar = (ProgressBar) Objects.requireNonNull(getView()).findViewById(R.id.progressbar);
-        loginTv = (TextView) getView().findViewById(R.id.loginTv);
         return inflater.inflate(R.layout.fragment_signup, container, false);
     }
 
@@ -58,13 +54,12 @@ public class SignupFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-//        progressBar.setVisibility(View.GONE);
         init(view);
         clickListener();
     }
 
     private void clickListener() {
+
         loginTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,13 +76,14 @@ public class SignupFragment extends Fragment {
                 String email= emailEt.getText().toString();
                 String password= passwordEt.getText().toString();
                 String confirmPassword= confirm_passwordEt.getText().toString();
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (name.isEmpty()|| name.equals(" ")){
                     nameEt.setError("Please enter a valid name");
                     return;
 
                 }
-                if (email.isEmpty()|| !email.matches(EMAIL_REGEX)){
+                if (email.isEmpty() || !email.matches(emailPattern)){
                     emailEt.setError("Please enter a valid email");
                     return;
 
@@ -140,7 +136,6 @@ public class SignupFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
 
-
                         if (task.isSuccessful()){
                             assert getActivity() !=null;
                             startActivity(new Intent(getActivity().getApplicationContext(), MainActivity.class));
@@ -156,6 +151,9 @@ public class SignupFragment extends Fragment {
 
     private void init(View view){
 
+        loginTv = view.findViewById(R.id.loginTv);
+        progressBar= view.findViewById(R.id.progressBar);
+        signUpBtn =view.findViewById(R.id.signupBtn);
         nameEt=view.findViewById(R.id.nameEt);
         emailEt=view.findViewById(R.id.emailEt);
         passwordEt=view.findViewById(R.id.passwordEt);
