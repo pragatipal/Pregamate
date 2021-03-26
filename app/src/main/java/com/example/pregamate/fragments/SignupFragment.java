@@ -87,7 +87,7 @@ public class SignupFragment extends Fragment {
 
                 }
                 if (password.isEmpty()|| password.length() < 6){
-                    passwordEt.setError("Please enter a valid password");
+                    passwordEt.setError("Please enter a valid 6 or more digit password");
                     return;
                 }
                 if (!confirmPassword.equals(password)){

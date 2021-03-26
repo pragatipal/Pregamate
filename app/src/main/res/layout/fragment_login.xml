@@ -30,11 +30,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:id="@+id/layout2">
 
 
         <EditText
-            android:id="@+id/usernsme"
+            android:id="@+id/emailEt2"
             android:layout_width="392dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -47,7 +48,7 @@
             android:importantForAutofill="no" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordEt2"
             android:layout_width="394dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -60,8 +61,17 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout2"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/progress_bar"
+        android:visibility="gone"/>
+
     <TextView
-        android:id="@+id/forgot_password"
+        android:id="@+id/forgotPasswordTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
@@ -121,7 +131,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
-            android:id="@+id/google"
+            android:id="@+id/googleLoginIv"
             android:layout_width="37dp"
             android:layout_height="37dp"
             android:layout_centerHorizontal="true"

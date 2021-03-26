@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         loginBtn= findViewById(R.id.loginBtn);
-        signupTv=(TextView) this.findViewById(R.id.signupTv);
+        signupTv=findViewById(R.id.signupTv);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,14 +33,16 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.mainContainer, new LoginFragment()).commit();
             }
         });
+
         signupTv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 signupTv.setVisibility(View.GONE);
                 loginBtn.setVisibility(View.GONE);
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.mainContainer, new SignupFragment()).commit();
             }
         });
+
     }
 }
