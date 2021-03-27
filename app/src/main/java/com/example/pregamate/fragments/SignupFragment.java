@@ -111,6 +111,12 @@ public class SignupFragment extends Fragment {
                             FirebaseUser user = auth.getCurrentUser();
                             assert user != null;
                             uploadUser(user,name,email);
+                            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    Toast.makeText(getContext(), "Email verification link sent", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                         else {
                             progressBar.setVisibility(View.GONE);
