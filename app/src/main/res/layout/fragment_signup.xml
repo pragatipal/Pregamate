@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.SignupFragment"
-    android:background="@drawable/ic_background">
+    android:background="@drawable/ic_background"
+    android:id="@+id/signupFragment">
 
     <TextView
         android:id="@+id/signup_text"

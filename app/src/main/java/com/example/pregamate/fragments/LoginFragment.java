@@ -16,9 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.pregamate.FragmentReplacerActivity;
-import com.example.pregamate.MainActivity;
 import com.example.pregamate.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -82,8 +81,11 @@ public class LoginFragment extends Fragment {
         sigUpTv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ((FragmentReplacerActivity) getActivity()).setFragment(new SignupFragment());
+                sigUpTv2.setVisibility(View.GONE);
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment mFrag = new SignupFragment();
+                fragmentTransaction.replace(R.id.loginFragment, mFrag);
+                fragmentTransaction.commit();
             }
         });
 
@@ -114,11 +116,8 @@ public class LoginFragment extends Fragment {
                                     if (!user.isEmailVerified()) {
                                         Toast.makeText(getContext(), "Please verify your email", Toast.LENGTH_SHORT).show();
                                     }
-
-
-                                    sendUserIdToMainActivity();
-
                                 }
+
                                 else {
                                     progressBar2.setVisibility(View.GONE);
                                     String exception = Objects.requireNonNull(task.getException()).getMessage();
@@ -139,15 +138,15 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    private void sendUserIdToMainActivity() {
-
-        if (getActivity()==null){
-            return;
-        }
-        progressBar2.setVisibility(View.GONE);
-        startActivity(new Intent(getContext().getApplicationContext(), MainActivity.class));
-        getActivity().finish();
-    }
+//    private void sendUserIdToMainActivity() {
+//
+//        if (getActivity()==null){
+//            return;
+//        }
+//        progressBar2.setVisibility(View.GONE);
+//        startActivity(new Intent(getContext().getApplicationContext(), MainActivity.class));
+//        getActivity().finish();
+//    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -220,7 +219,13 @@ public class LoginFragment extends Fragment {
                         progressBar2.setVisibility(View.GONE);
 
                         if (task.isSuccessful()){
-                            sendUserIdToMainActivity();
+                            googleLoginIv.setVisibility(View.GONE);
+                            loginBtn2.setVisibility(View.GONE);
+                            sigUpTv2.setVisibility(View.GONE);
+                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            Fragment mFrag = new WelcomeFragment();
+                            fragmentTransaction.replace(R.id.loginFragment, mFrag);
+                            fragmentTransaction.commit();
                         }
                         else {
                             Toast.makeText(getContext(), "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();

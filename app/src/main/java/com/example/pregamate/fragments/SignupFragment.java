@@ -14,8 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.pregamate.FragmentReplacerActivity;
 import com.example.pregamate.MainActivity;
 import com.example.pregamate.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -61,8 +61,12 @@ public class SignupFragment extends Fragment {
         loginTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ((FragmentReplacerActivity) getActivity()).setFragment(new LoginFragment());
+                signUpBtn.setVisibility(View.GONE);
+                loginTv.setVisibility(View.GONE);
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment mFrag = new LoginFragment();
+                fragmentTransaction.replace(R.id.signupFragment, mFrag);
+                fragmentTransaction.commit();
             }
         });
 
@@ -96,8 +100,14 @@ public class SignupFragment extends Fragment {
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
-
                 createAccount(name, email, password);
+                signUpBtn.setVisibility(View.GONE);
+                loginTv.setVisibility(View.GONE);
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                Fragment mFrag = new WelcomeFragment();
+                fragmentTransaction.replace(R.id.signupFragment, mFrag);
+                fragmentTransaction.commit();
+
             }
         });
     }
