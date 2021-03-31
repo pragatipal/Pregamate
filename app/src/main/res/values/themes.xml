@@ -12,7 +12,16 @@
         <item name="colorOnSecondary">@color/dark_grey</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-<!--        <item name="android:button" -->
+        <!--        <item name="android:button" -->
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.Pregamate.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Pregamate.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Pregamate.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

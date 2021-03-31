@@ -11,6 +11,14 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pregamate">
+        <activity
+            android:name=".CommunityActivity"
+            android:label="@string/title_activity_community"
+            android:theme="@style/Theme.Pregamate.NoActionBar"></activity>
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.Pregamate.NoActionBar" />
         <activity android:name=".FragmentReplacerActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
