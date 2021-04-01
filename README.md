@@ -25,9 +25,9 @@ It calls the pre feeded numbers like hospitals, doctors, relatives etc. in times
 
 To log out slide the drawer layout and select the "Sign Out".
 
-Technology used:
+## Technology used:
 
-## Pregamate uses some open source projects to work properly:
+Pregamate uses some open source projects to work properly:
 * Android
 * Java
 * Firebase Service
