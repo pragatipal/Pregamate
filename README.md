@@ -28,7 +28,7 @@ To log out slide the drawer layout and select the "Sign Out".
 Technology used:
 
 ## Pregamate uses some open source projects to work properly:
-..*Android
-..*Java
-..*Firebase Service
-..*Freepik
+* Android
+* Java
+* Firebase Service
+* Freepik
