@@ -1,6 +1,6 @@
 ## About our app:
 
-Pregamate- attempt for a digitized support system for all the women going through the journey of pregnancy.
+Pregamate- attempt for a digitized support system for all the women going through the journey of pregnancy. As we know the pregnancy related issues are very critical and unpredictable, a pregnant lady goes through multiple dillema . To tackle these shortcomings, our multi-faceted app("Pregamate") imparts well researched information about various topics in a trimester wise manner.
 
 ## System requirements:
 
@@ -20,7 +20,7 @@ Well researced information regarding Diets, Excercises, Tests to be conducted, C
 ### 2.Community -
 Our app allows you to post your status privately or publicly. You can post your status by clicking Community in the bottom navigation menu.
 
-### 3. Emergency-
+### 3. Emergency -
 It calls the pre feeded numbers like hospitals, doctors, relatives etc. in times of emergencies like unexpected blood discharge, pain or labour.
 
 To log out slide the drawer layout and select the "Sign Out".
