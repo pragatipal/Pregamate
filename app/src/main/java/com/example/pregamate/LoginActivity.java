@@ -1,11 +1,9 @@
-package com.example.pregamate.fragments;
+package com.example.pregamate;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,11 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pregamate.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -37,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class LoginFragment extends Fragment {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEt2, passwordEt2;
     private TextView sigUpTv2, forgotPasswordTv;
@@ -52,27 +47,25 @@ public class LoginFragment extends Fragment {
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
 
-    public LoginFragment() {
-        // Required empty public constructor
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
-    }
+        loginBtn2 = findViewById(R.id.loginBtn2);
+        progressBar2= findViewById(R.id.progressBar2);
+        sigUpTv2 =findViewById(R.id.signupTv2);
+        googleLoginIv=findViewById(R.id.googleLoginIv);
+        forgotPasswordTv= findViewById(R.id.forgotPasswordTv);
+        emailEt2=findViewById(R.id.emailEt2);
+        passwordEt2=findViewById(R.id.passwordEt2);
+        auth = FirebaseAuth.getInstance();
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
-    }
-
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        init(view);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken("196097664652-fopn8uomu0i3of6hrgqociuujd76j6cn.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         clickListener();
     }
 
@@ -81,11 +74,15 @@ public class LoginFragment extends Fragment {
         sigUpTv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sigUpTv2.setVisibility(View.GONE);
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                Fragment mFrag = new SignupFragment();
-                fragmentTransaction.replace(R.id.loginFragment, mFrag);
-                fragmentTransaction.commit();
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+        forgotPasswordTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -114,14 +111,16 @@ public class LoginFragment extends Fragment {
                                     user = auth.getCurrentUser();
                                     assert user != null;
                                     if (!user.isEmailVerified()) {
-                                        Toast.makeText(getContext(), "Please verify your email", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "Please verify your email", Toast.LENGTH_SHORT).show();
                                     }
+                                    Intent intent = new Intent(getApplicationContext(),WelcomeActivity.class);
+                                    startActivity(intent);
                                 }
 
                                 else {
                                     progressBar2.setVisibility(View.GONE);
                                     String exception = Objects.requireNonNull(task.getException()).getMessage();
-                                    Toast.makeText(getContext(), "Error: "+ exception, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Error: "+ exception, Toast.LENGTH_SHORT).show();
                                 }
 
                             }
@@ -138,15 +137,6 @@ public class LoginFragment extends Fragment {
         });
     }
 
-//    private void sendUserIdToMainActivity() {
-//
-//        if (getActivity()==null){
-//            return;
-//        }
-//        progressBar2.setVisibility(View.GONE);
-//        startActivity(new Intent(getContext().getApplicationContext(), MainActivity.class));
-//        getActivity().finish();
-//    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -173,18 +163,11 @@ public class LoginFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = auth.getCurrentUser();
-
-    }
 
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(credential)
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -202,7 +185,7 @@ public class LoginFragment extends Fragment {
 
     private void updateUI(FirebaseUser user) {
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         Map<String, Object> map = new HashMap<>();
         map.put("name", account.getDisplayName());
@@ -222,34 +205,13 @@ public class LoginFragment extends Fragment {
                             googleLoginIv.setVisibility(View.GONE);
                             loginBtn2.setVisibility(View.GONE);
                             sigUpTv2.setVisibility(View.GONE);
-                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            Fragment mFrag = new WelcomeFragment();
-                            fragmentTransaction.replace(R.id.loginFragment, mFrag);
-                            fragmentTransaction.commit();
+                            Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+                            startActivity(intent);
                         }
                         else {
-                            Toast.makeText(getContext(), "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Error"+ Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-    }
-
-
-    private void init(View view){
-
-        loginBtn2 = view.findViewById(R.id.loginBtn2);
-        progressBar2= view.findViewById(R.id.progressBar2);
-        sigUpTv2 =view.findViewById(R.id.signupTv2);
-        googleLoginIv=view.findViewById(R.id.googleLoginIv);
-        forgotPasswordTv= view.findViewById(R.id.forgotPasswordTv);
-        emailEt2=view.findViewById(R.id.emailEt2);
-        passwordEt2=view.findViewById(R.id.passwordEt2);
-        auth = FirebaseAuth.getInstance();
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("196097664652-fopn8uomu0i3of6hrgqociuujd76j6cn.apps.googleusercontent.com")
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
     }
 }

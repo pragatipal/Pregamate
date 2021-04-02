@@ -19,11 +19,11 @@
     <string name="recover">Recover</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_home">ScrollingActivity</string>
+    <string name="title_activity_home">Home</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "A material metaphor is the unifying theory of a r ationalized space and a system of motion."
         "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
         "technologically advanced and open to imagination and magic.\n"
         "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
@@ -137,7 +137,7 @@
     <string name="diets">Diets</string>
     <string name="exercises">Exercises</string>
     <string name="tests">Tests</string>
-    <string name="title_activity_community">CommunityActivity</string>
+    <string name="title_activity_community">Community</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="enter_message">Enter message</string>

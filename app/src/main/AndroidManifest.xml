@@ -11,15 +11,43 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pregamate">
+
+        <!--Welcome Activity-->
+        <activity android:name=".WelcomeActivity"
+            android:label="Welcome"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <!--Login Activity-->
+        <activity android:name=".LoginActivity"
+            android:label="@string/login"
+            android:parentActivityName=".MainActivity"/>
+
+        <!--Signup Activity Activity-->
+        <activity android:name=".ForgotPasswordActivity"
+            android:label="@string/forgot_password"
+            android:parentActivityName=".LoginActivity"/>
+
+
+        <!--Signup Activity Activity-->
+        <activity android:name=".SignupActivity"
+            android:label="@string/signup"
+            android:parentActivityName=".MainActivity"/>
+
+        <!--Community Activity-->
         <activity
             android:name=".CommunityActivity"
             android:label="@string/title_activity_community"
-            android:theme="@style/Theme.Pregamate.NoActionBar"></activity>
+            android:theme="@style/Theme.Pregamate.NoActionBar"
+            android:parentActivityName=".HomeActivity"/>
+
+        <!--Home Activity-->
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.Pregamate.NoActionBar" />
-        <activity android:name=".FragmentReplacerActivity" />
+
+        <!--Main Activity-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +55,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
