@@ -19,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private static final String TAG = "CalendarActivity";
     private int trimsPregnant;
     private long diffYear, diffMonth;
-    private Button startButton;
+    private Button startBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +27,17 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         calendarView = findViewById(R.id.calendarView);
-        startButton = findViewById(R.id.startBtn);
+        startBtn = findViewById(R.id.startBtn);
 
         letsStart();
     }
 
     private void letsStart() {
-        startButton.setOnClickListener(new View.OnClickListener() {
+        startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
             }
         });
     }

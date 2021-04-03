@@ -20,6 +20,20 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_home" />
+    <include layout="@layout/content_try" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        android:foreground="?attr/selectableItemBackground"
+        app:menu="@menu/master_bottom_navigation"
+        app:elevation="10dp"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="#0066B5"
+        app:itemTextColor="@color/white"
+        app:itemBackground="@color/white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
