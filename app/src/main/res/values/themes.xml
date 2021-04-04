@@ -38,17 +38,20 @@
     <style name="parent.contentLayout">
         <item name="android:background">@color/contentBodyColor</item>
         <item name="android:padding">@dimen/normalPadding</item>
+        <item name="android:fontFamily">casual</item>
     </style>
 
     <style name="viewParent.headerText">
         <item name="android:textColor">@color/contentTextColor</item>
         <item name="android:textSize">@dimen/headerTextSize</item>
+        <item name="android:fontFamily">casual</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="viewParent.headerText.contentText">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/miniTitleColor</item>
+        <item name="android:fontFamily">casual</item>
     </style>
 
     <style name="homeCardImage">

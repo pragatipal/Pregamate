@@ -29,4 +29,9 @@
     <color name="gradientOrange3">#F7A23C</color>
     <color name="gradientLightBlue">#376DF6</color>
     <color name="gradientLightGreen">#21E8AC</color>
+
+
+    <color name="bottomNavigationTextColor">#B2B2B2</color>
+    <color name="bottomNavigationTintColor">#B2B2B2</color>
+    <color name="bottomNavigationSelectedColor">#FC4926</color>
 </resources>

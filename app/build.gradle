@@ -40,7 +40,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:19.0.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.androidx.support:design:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
     implementation 'net.colindodd:gradientlayout:1.2'
 
 

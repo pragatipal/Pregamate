@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/navigationMenu"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Menu" />
+
+    <item
+        android:id="@+id/bottom_emergency"
+        android:icon="@drawable/ic_emergency"
+        android:title="@string/emergency" />
+
+    <item
+        android:id="@+id/bottom_home"
+        android:icon="@drawable/ic_house"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/bottom_community"
+        android:icon="@drawable/ic_community"
+        android:title="@string/community" />
+
+    <item
+        android:id="@+id/bottom_user"
+        android:icon="@drawable/ic_user_logo"
+        android:title="@string/user" />
+
 </menu>

@@ -145,7 +145,11 @@
     <string name="diet">Diet</string>
     <string name="dos_and_don_ts">Dos and Don\'ts</string>
     <string name="baby_growth">Baby Growth</string>
-    <string name="dummy_text">Study nature, love nature,\nclose to nature</string>
+    <string name="dummy_text">Study nature, love nature,
+        \nclose to nature</string>
     <string name="changes_in_mum">Changes in Mum</string>
-    <string name="tests">Tests</string>
+    <string name="emergency">Emergency</string>
+    <string name="home">Home</string>
+    <string name="community">Community</string>
+    <string name="user">User</string>
 </resources>

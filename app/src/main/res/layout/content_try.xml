@@ -17,14 +17,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--            <TextView-->
-<!--                android:text="Never trust anyone who has not brought a book with them."-->
-<!--                style="@style/viewParent.headerText.contentText"-->
-<!--                android:layout_marginBottom="20dp"/>-->
 
             <TextView
                 style="@style/viewParent.headerText"
-                android:text="@string/first_trimester" />
+ android:text="@string/first_trimester" />
+
+            <TextView
+                android:text="@string/dummy_text"
+                style="@style/viewParent.headerText.contentText"
+                android:layout_marginBottom="10dp"/>
+
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -33,13 +36,11 @@
                 app:cardPreventCornerOverlap="true"
                 android:layout_marginTop="10dp">
 
-                <net.colindodd.gradientlayout.GradientRelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
-                    gl:start_color="@color/gradientLightYellow"
-                    gl:end_color="@color/gradientOrange"
-                    gl:orientation="LEFT_RIGHT"
+                    android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 
                     <TextView
@@ -48,7 +49,7 @@
                         style="@style/viewParent.headerText.HomeCardTitle" />
 
                     <TextView
-                        android:text="Study nature, love nature,\nclose to nature"
+                        android:text="@string/dummy_text"
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub2Title"/>
 
@@ -57,7 +58,7 @@
                         android:src="@drawable/ic_diet"
                         style="@style/homeCardImage" />
 
-                </net.colindodd.gradientlayout.GradientRelativeLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
 
@@ -68,13 +69,11 @@
                 app:cardPreventCornerOverlap="true"
                 android:layout_marginTop="10dp">
 
-                <net.colindodd.gradientlayout.GradientRelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
-                    gl:end_color="@color/gradientLightYellow2"
-                    gl:start_color="@color/gradientLightOrange2"
-                    gl:orientation="LEFT_RIGHT"
+                    android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 
                     <TextView
@@ -83,7 +82,7 @@
                         style="@style/viewParent.headerText.HomeCardTitle" />
 
                     <TextView
-                        android:text="Study nature, love nature,\nclose to nature"
+                        android:text="@string/dummy_text"
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/textViewSub3Title"/>
 
@@ -92,7 +91,7 @@
                         android:src="@drawable/ic_exercises"
                         style="@style/homeCardImage" />
 
-                </net.colindodd.gradientlayout.GradientRelativeLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
 
@@ -103,13 +102,11 @@
                 app:cardPreventCornerOverlap="true"
                 android:layout_marginTop="10dp">
 
-                <net.colindodd.gradientlayout.GradientRelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
-                    gl:start_color="@color/gradientLightOrange2"
-                    gl:end_color="@color/gradientOrange3"
-                    gl:orientation="LEFT_RIGHT"
+                    android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 
                     <TextView
@@ -127,7 +124,7 @@
                         android:src="@drawable/ic_tests"
                         style="@style/homeCardImage" />
 
-                </net.colindodd.gradientlayout.GradientRelativeLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -137,13 +134,11 @@
                 app:cardPreventCornerOverlap="true"
                 android:layout_marginTop="10dp">
 
-                <net.colindodd.gradientlayout.GradientRelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
-                    gl:start_color="@color/gradientViolet"
-                    gl:end_color="@color/gradientLightBlue"
-                    gl:orientation="LEFT_RIGHT"
+                    android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 
                     <TextView
@@ -157,11 +152,11 @@
                         android:layout_below="@id/textViewSub5Title"/>
 
                     <ImageView
+                        style="@style/homeCardImage"
                         android:maxHeight="90dp"
-                        android:src="@drawable/ic_changes_in_mum"
-                        style="@style/homeCardImage" />
+                        android:src="@drawable/ic_changes_in_mum" />
 
-                </net.colindodd.gradientlayout.GradientRelativeLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -171,13 +166,11 @@
                 app:cardPreventCornerOverlap="true"
                 android:layout_marginTop="10dp">
 
-                <net.colindodd.gradientlayout.GradientRelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
-                    gl:start_color="@color/gradientLightGreen"
-                    gl:end_color="@color/gradientLightBlue"
-                    gl:orientation="LEFT_RIGHT"
+                    android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 
                     <TextView
@@ -195,7 +188,7 @@
                         android:src="@drawable/ic_baby_growth"
                         style="@style/homeCardImage" />
 
-                </net.colindodd.gradientlayout.GradientRelativeLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -203,15 +196,14 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="15dp"
                 app:cardPreventCornerOverlap="true"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
-                <net.colindodd.gradientlayout.GradientRelativeLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
-                    gl:start_color="@color/gradientLightGreen"
-                    gl:end_color="@color/gradientLightBlue"
-                    gl:orientation="LEFT_RIGHT"
+                    android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 
                     <TextView
@@ -222,14 +214,14 @@
                     <TextView
                         android:text="@string/dummy_text"
                         style="@style/viewParent.headerText.homeCardContent"
-                        android:layout_below="@id/textViewSub6Title"/>
+                        android:layout_below="@id/textViewSub7Title"/>
 
                     <ImageView
                         android:maxHeight="90dp"
                         android:src="@drawable/ic_dondonts"
                         style="@style/homeCardImage" />
 
-                </net.colindodd.gradientlayout.GradientRelativeLayout>
+                </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
 
