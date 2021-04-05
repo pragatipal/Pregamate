@@ -11,11 +11,14 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.pregamate.ui.signout.SignoutFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -36,9 +39,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     return true;
                 case R.id.bottom_emergency:
                     return true;
-                case  R.id.bottom_user:
+                case R.id.bottom_user:
                     return true;
-                case  R.id.navigationMenu:
+                case R.id.navigationMenu:
                     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                     drawer.openDrawer(GravityCompat.START);
                     return true;
@@ -98,7 +101,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_user) {
 
         } else if (id == R.id.nav_signout) {
-
+//            Fragment fragment = null;
+            Fragment fragment=new SignoutFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.drawer_layout, fragment);
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle("Sign Out");
+//            if ((fragment != null)) {
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.drawer_layout, fragment);
+//                fragmentTransaction.commit();
+//                getSupportActionBar().setTitle("Sign Out");
+//            }
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
