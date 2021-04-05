@@ -13,13 +13,18 @@
 
     <fragment
         android:id="@+id/nav_user"
-        android:name="com.example.pregamate.ui.gallery.GalleryFragment"
+        android:name="com.example.pregamate.ui.user.UserFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_user" />
 
     <fragment
         android:id="@+id/nav_signout"
-        android:name="com.example.pregamate.ui.slideshow.SlideshowFragment"
+        android:name="com.example.pregamate.ui.signout.SignoutFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_signout" />
+    <activity
+        android:id="@+id/homeActivity2"
+        android:name="com.example.pregamate.HomeActivity"
+        android:label="content_try"
+        tools:layout="@layout/content_try" />
 </navigation>
