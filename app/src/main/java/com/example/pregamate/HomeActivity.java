@@ -52,9 +52,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         return true;
                     case R.id.nav_user:
                         fragment = new UserFragment();
+                        return true;
                     case R.id.navigationMenu:
                         DrawerLayout drawer = findViewById(R.id.drawer_layout);
                         drawer.openDrawer(GravityCompat.START);
+                        return true;
                 }
                 loadFragment(fragment);
                 return false;
@@ -99,8 +101,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.drawer_layout, fragment);
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.nav_home, fragment);
         fragmentTransaction.commit();
     }
 
@@ -239,7 +240,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return false;
+        return true;
     }
 
     @Override
