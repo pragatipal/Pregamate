@@ -139,7 +139,6 @@ public class SignupActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
 
                         if (task.isSuccessful()){
-                            assert this !=null;
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
                         }
