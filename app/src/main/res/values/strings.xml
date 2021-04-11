@@ -165,4 +165,18 @@
     <string name="trimester">Trimester</string>
     <string name="exercise">Exercise</string>
     <string name="diet">Diets</string>
+    <string name="_1st_number">1st number</string>
+    <string name="_2nd_number">2nd number</string>
+    <string name="done">Done</string>
+    <string name="email_user">Email</string>
+    <string name="name_user">Name</string>
+    <string name="tell_us_more">Tell Us More</string>
+    <string name="about_us">Know more about Pregamate</string>
+    <string name="rate_us">Like pregamate? Give a rating</string>
+    <string name="send">send</string>
+    <string name="diets_content">Eat a diet high in fruits, vegetables, low-fat forms of protein, and fiber. Drink lots of water. Intake sources iron and protein enriched with amino acids that act as the building blocks for cells. Eat enough calories (about 300 calories more than normal). Avoid alcohol .Avoid caffeine (no more than one cup of coffee or tea per day) Avoid raw fish or smoked seafood (no sushi) .Avoid eating raw sprouts, unpasteurized milk or other dairy products, deli meats or hot dogs.</string>
+    <string name="exercises_content">During the first trimester, aim to establish good exercise habits gradually. The right amount of exercise will depend on how active a person was before becoming pregnant. It is best to favor low-impact exercises, especially walking, yoga, swimming, and water aerobics. Some slightly more vigorous exercises are often appropriate in the first trimester. Examples include running, jogging, and moderate weightlifting. While the benefits generally outweigh the risks, speak with a doctor before starting any new exercises or workout routines. A person who exercised regularly before becoming pregnant should consult a doctor, and if possible a personal trainer, about gradually decreasing the intensity of their workout to a level that is safe during pregnancy.</string>
+    <string name="tests_content">Women normally see their doctor once a month during the first trimester. A doctor will take a full health history and perform a full physical and pelvic exam - perform an ultrasound to confirm the pregnancy - perform a Pap test - take your blood pressure - test for sexually transmitted infections, HIV, and hepatitis - estimate your date of delivery or “due date,” which is around 266 days from the first day of your last period - screen for risk factors like anemia - check thyroid levels - check your weight - At around 11 weeks, the doctor will perform a test called a nuchal translucency (NT) scan. The test uses an ultrasound to measure the baby’s head and thickness of the baby’s neck. The measurements can help determine the chance that your baby will be born with a genetic disorder known as Down syndrome.</string>
+    <string name="baby_growth_content">A baby develops rapidly during the first trimester. The fetus begins to develop a brain and spinal cord, and the organs begin to form. The baby’s heart will also begin to beat during the first trimester. Arms and legs begin to bud in the first few weeks, and by the end of eight weeks, fingers and toes start to form. By the end of the first trimester, the baby’s sex organs have formed.</string>
+    <string name="changes_mum_content">Fatigue . Throwing up. Mood Swings. Tender Breasts. Heartburn. Weight Gain or Loss. Cravings.</string>
 </resources>

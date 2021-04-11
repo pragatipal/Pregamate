@@ -16,12 +16,9 @@ import com.example.pregamate.R;
 
 public class UserFragment extends Fragment {
 
-    private UserViewModel userViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        userViewModel =
-                new ViewModelProvider(this).get(UserViewModel.class);
+        UserViewModel userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         View root = inflater.inflate(R.layout.fragment_user, container, false);
         final TextView textView = root.findViewById(R.id.text_user);
         userViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -30,6 +27,9 @@ public class UserFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+
+
         return root;
     }
 }

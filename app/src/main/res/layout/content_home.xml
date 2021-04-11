@@ -12,18 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/trimesterTitle"
                 style="@style/viewParent.headerText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/trimester" />
+                android:text="@string/trim1" />
 
             <TextView
                 android:id="@+id/trimesterDesc"
@@ -73,7 +73,7 @@
                 android:id="@+id/dietsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_text"
+                android:text="@string/diets_content"
                 style="@style/viewParent.headerText.homeCardContent"
                 android:visibility="gone"/>
 
@@ -118,7 +118,7 @@
                 android:id="@+id/exercisesText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_text"
+                android:text="@string/exercises_content"
                 style="@style/viewParent.headerText.homeCardContent"
                 android:visibility="gone"/>
 
@@ -164,7 +164,7 @@
                 android:id="@+id/testsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_text"
+                android:text="@string/tests_content"
                 style="@style/viewParent.headerText.homeCardContent"
                 android:visibility="gone"/>
 
@@ -208,7 +208,7 @@
                 android:id="@+id/changesMumText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_text"
+                android:text="@string/changes_mum_content"
                 style="@style/viewParent.headerText.homeCardContent"
                 android:visibility="gone"/>
 
@@ -252,7 +252,7 @@
                 android:id="@+id/babyGrowthText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/placeholder_text"
+                android:text="@string/baby_growth_content"
                 style="@style/viewParent.headerText.homeCardContent"
                 android:visibility="gone"/>
 

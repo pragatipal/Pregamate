@@ -14,13 +14,13 @@
     <fragment
         android:id="@+id/nav_user"
         android:name="com.example.pregamate.ui.user.UserFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_user"
         tools:layout="@layout/fragment_user" />
 
     <fragment
         android:id="@+id/nav_signout"
         android:name="com.example.pregamate.ui.signout.SignoutFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_signout"
         tools:layout="@layout/fragment_signout" />
     <activity
         android:id="@+id/homeActivity"

@@ -22,7 +22,7 @@
         android:title="@string/community" />
 
     <item
-        android:id="@+id/bottom_user"
+        android:id="@+id/nav_user"
         android:icon="@drawable/ic_user_logo"
         android:title="@string/user" />
 

@@ -16,6 +16,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -23,6 +24,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.pregamate.ui.home.HomeFragment;
+import com.example.pregamate.ui.signout.SignoutFragment;
+import com.example.pregamate.ui.user.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +42,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @SuppressLint("NonConstantResourceId")
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
-                Fragment fragment;
+                Fragment fragment=new HomeFragment();
                 switch (item.getItemId()) {
                     case R.id.bottom_home:
                         fragment = new HomeFragment();
@@ -47,13 +50,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         return true;
                     case R.id.bottom_emergency:
                         return true;
-                    case R.id.bottom_user:
-                        return true;
+                    case R.id.nav_user:
+                        fragment = new UserFragment();
                     case R.id.navigationMenu:
                         DrawerLayout drawer = findViewById(R.id.drawer_layout);
                         drawer.openDrawer(GravityCompat.START);
-                        return true;
                 }
+                loadFragment(fragment);
                 return false;
             };
 
@@ -79,26 +82,26 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
-        navigationView.setNavigationItemSelectedListener(this);
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        NavigationUI.setupWithNavController(bottomNavigationView,navController);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 //
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationBehavior());
 
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
-//
-//        MenuItem signoutMenu = findViewById(R.id.action_signout);
-//        signoutMenu.setOnMenuItemClickListener(item -> {
-//            auth.signOut();
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//            return false;
-//        });
 
 
         cardClickListener();
+    }
+
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.drawer_layout, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     private void cardClickListener() {
@@ -145,18 +148,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 
-        if (trimsPregnant==1){
-           trimesterTitle.setText(R.string.trim1);
-           trimesterDesc.setText(R.string.trim1Desc);
-        }
-        else if (trimsPregnant==2){
-            trimesterTitle.setText(R.string.trim2);
-            trimesterDesc.setText(R.string.trim2Desc);
-        }
-        else if (trimsPregnant==3){
-            trimesterTitle.setText(R.string.trim3);
-            trimesterDesc.setText(R.string.trim3Desc);
-        }
+//        if (trimsPregnant==1){
+//           trimesterTitle.setText(R.string.trim1);
+//           trimesterDesc.setText(R.string.trim1Desc);
+//        }
+//        else if (trimsPregnant==2){
+//            trimesterTitle.setText(R.string.trim2);
+//            trimesterDesc.setText(R.string.trim2Desc);
+//        }
+//        else if (trimsPregnant==3){
+//            trimesterTitle.setText(R.string.trim3);
+//            trimesterDesc.setText(R.string.trim3Desc);
+//        }
 
         diets.setOnClickListener(v -> {
             if (dietsTv.getVisibility()== View.GONE){
@@ -228,14 +231,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_home) {
             return true;
         } else if (id == R.id.nav_user) {
-            
+            loadFragment(new UserFragment());
         }
         else if (id == R.id.nav_signout) {
-
+            loadFragment(new SignoutFragment());
+            return true;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return true;
+        return false;
     }
 
     @Override
