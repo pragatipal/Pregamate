@@ -37,6 +37,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                intent.putExtra("trimsPregnant", getTimePregnant());
                 startActivity(intent);
             }
         });
@@ -48,13 +49,13 @@ public class WelcomeActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                LocalDate date1 = LocalDate.now();
-                diffYear = date1.getYear()-year;
-                if (date1.getYear()!=year){
-                    diffMonth = 12- date1.getMonthValue()+month;
+                LocalDate date = LocalDate.now();
+                diffYear = date.getYear()-year;
+                if (date.getYear()!=year){
+                    diffMonth = 12- date.getMonthValue()+month;
                 }
                 else {
-                    diffMonth = date1.getMonthValue()-month;
+                    diffMonth = date.getMonthValue()-month;
                 }
             }
         });

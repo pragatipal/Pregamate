@@ -1,126 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:gl="http://schemas.android.com/apk/res-auto"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_home">
+    tools:context="com.example.pregamate.HomeActivity"
+    tools:showIn="@layout/app_bar_home"
+    style="@style/parent.contentLayout">
 
-<ScrollView
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:layout_margin="16dp">
-
-    <RelativeLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-        android:id="@+id/analogyIv"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:contentDescription="@string/first_trimester"
-        android:layout_marginTop="100dp"/>
+        android:layout_height="match_parent">
 
-        <TextView
-        android:id="@+id/trimesterNameTv"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:textColor="@color/dark_grey"
-        android:layout_centerHorizontal="true"/>
-
-
-        <TextView
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="100dp"
-            android:layout_toEndOf="@+id/analogyIv"
-            android:textColor="@color/dark_grey" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="240dp">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/dietsBtn"
+
+            <TextView
+                android:id="@+id/trimesterTitle"
+                style="@style/viewParent.headerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trimester" />
+
+            <TextView
+                android:id="@+id/trimesterDesc"
+                android:text="@string/dummy_text"
+                style="@style/viewParent.headerText.contentText"
+                android:layout_marginBottom="10dp"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/diets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dark_grey"
-                android:text="@string/diets"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/dark_grey"
-            app:layout_constraintTop_toBottomOf="@+id/dietsBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/diets"
-            android:visibility="gone"
-            />
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:focusable="true">
 
-            <Button
-                android:id="@+id/exercisesBtn"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/dietsTitle"
+                        android:text="@string/diet"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:id="@+id/dietDesc"
+                        android:text="@string/dummy_text"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/dietsTitle"/>
+
+                    <ImageView
+                        android:maxHeight="90dp"
+                        android:src="@drawable/ic_diet"
+                        style="@style/homeCardImage"
+                        android:contentDescription="@string/diet"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/dietsText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/dark_grey"
-                android:text="@string/exercises"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diets" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/dark_grey"
-            app:layout_constraintTop_toBottomOf="@+id/exercisesBtn"
-            android:layout_marginTop="8dp"
-            android:id="@+id/exercises"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-        <Button
-            android:id="@+id/testsBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tests"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exercises"
-            android:background="@color/dark_grey"
-            android:textColor="@color/white"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-        />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/dark_grey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testsBtn"
-            android:id="@+id/tests"
-            android:visibility="gone"
-            />
+                android:text="@string/placeholder_text"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:visibility="gone"/>
 
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/nav_host_fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/exercises"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:defaultNavHost="true"
-                app:layout_constraintHorizontal_bias="0.406"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:navGraph="@navigation/mobile_navigation" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </RelativeLayout>
-</ScrollView>
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                android:clickable="true"
+                app:cardPreventCornerOverlap="true"
+                android:layout_marginTop="10dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/exercisesTitle"
+                        android:text="@string/exercise"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:id="@+id/exercisesDesc"
+                        android:text="@string/dummy_text"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/exercisesTitle"/>
+
+                    <ImageView
+                        android:maxHeight="90dp"
+                        android:src="@drawable/ic_exercises"
+                        style="@style/homeCardImage"
+                        android:contentDescription="@string/exercise" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/exercisesText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_text"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:visibility="gone"/>
 
 
-</RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                android:clickable="true"
+                app:cardPreventCornerOverlap="true"
+                android:layout_marginTop="10dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/testsTitle"
+                        android:text="@string/tests"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:id="@+id/testsDesc"
+                        android:text="@string/dummy_text"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/testsTitle"/>
+
+                    <ImageView
+                        android:maxHeight="90dp"
+                        android:src="@drawable/ic_tests"
+                        style="@style/homeCardImage"
+                        android:contentDescription="@string/tests" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/testsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_text"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:visibility="gone"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/changesMum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                android:clickable="true"
+                app:cardPreventCornerOverlap="true"
+                android:layout_marginTop="10dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/changesMumTitle"
+                        android:text="@string/changes_in_mum"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:text="@string/dummy_text"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/changesMumTitle"/>
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/ic_changes_in_mum"
+                        android:contentDescription="@string/changes_in_mum" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/changesMumText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_text"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:visibility="gone"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/babyGrowth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                android:clickable="true"
+                app:cardPreventCornerOverlap="true"
+                android:layout_marginTop="10dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/babyGrowthTitle"
+                        android:text="@string/baby_growth"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:text="@string/dummy_text"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/babyGrowthTitle"/>
+
+                    <ImageView
+                        android:maxHeight="85dp"
+                        android:src="@drawable/ic_baby_growth"
+                        style="@style/homeCardImage"
+                        android:contentDescription="@string/baby_growth" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/babyGrowthText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_text"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:visibility="gone"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/doDont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                android:clickable="true"
+                app:cardPreventCornerOverlap="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:background="@drawable/home_gradient_maths"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/doDontTitle"
+                        android:text="@string/dos_and_don_ts"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:text="@string/dummy_text"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/doDontTitle"/>
+
+                    <ImageView
+                        android:maxHeight="90dp"
+                        android:src="@drawable/ic_dondonts"
+                        style="@style/homeCardImage"
+                        android:contentDescription="@string/dos_and_don_ts" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/doDontText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_text"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:visibility="gone"/>
+
+
+</LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

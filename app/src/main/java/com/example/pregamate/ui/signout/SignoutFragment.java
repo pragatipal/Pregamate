@@ -21,12 +21,9 @@ public class SignoutFragment extends Fragment {
 
     private FirebaseAuth auth;
 
-    private SignoutViewModel signoutViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        signoutViewModel =
-                new ViewModelProvider(this).get(SignoutViewModel.class);
+        SignoutViewModel signoutViewModel = new ViewModelProvider(this).get(SignoutViewModel.class);
         View root = inflater.inflate(R.layout.fragment_signout, container, false);
         final TextView textView = root.findViewById(R.id.text_signout);
         signoutViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -37,7 +34,7 @@ public class SignoutFragment extends Fragment {
         });
 
         auth = FirebaseAuth.getInstance();
-        signout(getView());
+        signout();
         return root;
     }
 
@@ -47,7 +44,7 @@ public class SignoutFragment extends Fragment {
 //        FirebaseUser user = auth.getCurrentUser();
 //    }
 
-    private void signout(View view) {
+    private void signout() {
         auth.signOut();
         Intent intent = new Intent(getActivity(), MainActivity.class);
         startActivity(intent);

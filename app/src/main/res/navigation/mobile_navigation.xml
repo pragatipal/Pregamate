@@ -23,8 +23,8 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_signout" />
     <activity
-        android:id="@+id/homeActivity2"
+        android:id="@+id/homeActivity"
         android:name="com.example.pregamate.HomeActivity"
-        android:label="content_try"
-        tools:layout="@layout/content_try" />
+        android:label="content_home"
+        tools:layout="@layout/content_home" />
 </navigation>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="100dp"
+        android:background="@drawable/home_gradient_maths"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:text="@string/dos_and_don_ts"
+            style="@style/viewParent.headerText.HomeCardTitle" />
+
+        <TextView
+            android:id="@+id/description"
+            android:text="@string/dummy_text"
+            style="@style/viewParent.headerText.homeCardContent"
+            android:layout_below="@id/title"/>
+
+        <ImageView
+            android:maxHeight="90dp"
+            android:src="@drawable/ic_dondonts"
+            style="@style/homeCardImage"
+            android:contentDescription="@string/dos_and_don_ts"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

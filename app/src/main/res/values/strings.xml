@@ -142,14 +142,27 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="enter_message">Enter message</string>
     <string name="action_signout">Sign Out</string>
-    <string name="diet">Diet</string>
     <string name="dos_and_don_ts">Dos and Don\'ts</string>
     <string name="baby_growth">Baby Growth</string>
     <string name="dummy_text">Study nature, love nature,
         \nclose to nature</string>
+
+    <string name="trim1">First Trimester</string>
+    <string name="trim2">Second Trimester</string>
+    <string name="trim3">Third Trimester</string>
+
+    <string name="trim1Desc">First Trimester some one liner Description</string>
+    <string name="trim2Desc">Second Trimester some one liner Description</string>
+    <string name="trim3Desc">Third Trimester some one liner Description</string>
+
+    <string name="placeholder_text">Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to natureStudy nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature Study nature, love nature, close to nature</string>
+
     <string name="changes_in_mum">Changes in Mum</string>
     <string name="emergency">Emergency</string>
     <string name="home">Home</string>
     <string name="community">Community</string>
     <string name="user">User</string>
+    <string name="trimester">Trimester</string>
+    <string name="exercise">Exercise</string>
+    <string name="diet">Diets</string>
 </resources>
