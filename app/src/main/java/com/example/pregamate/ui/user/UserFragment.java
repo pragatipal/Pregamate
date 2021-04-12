@@ -8,7 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pregamate.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +21,22 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class UserFragment extends Fragment {
 
-<<<<<<< HEAD
+
+    //    Firebase
+    private FirebaseAuth auth;
+    private FirebaseUser user;
+    private FirebaseDatabase db;
+    private DatabaseReference ref;
+
+
+    //    Views from xml
+    private ImageView userProfileIv;
+    private TextView nameTv, emailTv, trimesterTv;
+
+    public UserFragment() {
+//       Required public constructor
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         UserViewModel userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
@@ -31,37 +49,7 @@ public class UserFragment extends Fragment {
             }
         });
 
-
-
         return root;
-=======
-//    Firebase
-    private FirebaseAuth auth;
-    private FirebaseUser user;
-    private FirebaseDatabase db;
-    private DatabaseReference ref;
 
-
-//    Views from xml
-    private ImageView userProfileIv;
-    private TextView nameTv, emailTv, trimesterTv;
-
-    public UserFragment(){
-//       Required public constructor
-    }
-
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
-//        init firebase
-        auth =FirebaseAuth.getInstance();
-        user= auth.getCurrentUser();
-        db= FirebaseDatabase.getInstance();
-        ref= db.getReference();
-
-
-        return inflater.inflate(R.layout.fragment_user, container, false);
->>>>>>> d5e42b74b6cc509d4fc23533efa3318b66a8d91f
     }
 }

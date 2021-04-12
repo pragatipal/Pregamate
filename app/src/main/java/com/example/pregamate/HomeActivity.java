@@ -46,13 +46,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 switch (item.getItemId()) {
                     case R.id.bottom_home:
                         fragment = new HomeFragment();
+                        break;
                     case R.id.bottom_community:
                         return true;
                     case R.id.bottom_emergency:
                         return true;
                     case R.id.nav_user:
                         fragment = new UserFragment();
-                        return true;
+                        break;
                     case R.id.navigationMenu:
                         DrawerLayout drawer = findViewById(R.id.drawer_layout);
                         drawer.openDrawer(GravityCompat.START);
@@ -101,7 +102,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.nav_home, fragment);
+        fragmentTransaction.replace(R.id.drawer_layout, fragment);
         fragmentTransaction.commit();
     }
 

@@ -27,10 +27,50 @@
 
             <TextView
                 android:id="@+id/trimesterDesc"
-                android:text="@string/dummy_text"
+                android:text="You are 11 weeks into the pregnancy journey now"
                 style="@style/viewParent.headerText.contentText"
                 android:layout_marginBottom="10dp"/>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:focusable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="200dp"
+                    android:background="#FDF7FF"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/introTitle"
+                        android:text="Hello Mumma"
+                        android:layout_centerHorizontal="true"
+                        style="@style/viewParent.headerText.HomeCardTitle" />
+
+                    <TextView
+                        android:text="Your baby is now the size of a cute dumpling. Baby is busy developing brain spinal cord and other organs.Also you will finally be able  to hear baby's heartbeat.
+                        Yayy!! "
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:width="200dp"
+                        android:layout_alignParentEnd="true"
+                        android:textAlignment="viewEnd"
+                        android:layout_below="@id/introTitle"/>
+
+                    <ImageView
+                        android:maxHeight="120dp"
+                        android:src="@drawable/ic_first_trim"
+                        style="@style/homeCardImage"
+                        android:layout_alignParentStart="true"
+                        android:contentDescription="@string/diet"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/diets"
@@ -56,7 +96,8 @@
 
                     <TextView
                         android:id="@+id/dietDesc"
-                        android:text="@string/dummy_text"
+                        android:text="Pregnant? Hungry? Check out all
+                        that's good for baby and you"
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/dietsTitle"/>
 
@@ -102,7 +143,7 @@
 
                     <TextView
                         android:id="@+id/exercisesDesc"
-                        android:text="@string/dummy_text"
+                        android:text="Be fit and fine with these workouts"
                         style="@style/viewParent.headerText.homeCardContent"
                         android:layout_below="@id/exercisesTitle"/>
 
@@ -181,7 +222,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:minHeight="100dp"
+                    android:minHeight="130dp"
                     android:background="@drawable/home_gradient_maths"
                     android:padding="10dp">
 

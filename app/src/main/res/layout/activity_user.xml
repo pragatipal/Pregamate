@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:background="#90001061">
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="110dp"
+                android:id="@+id/layout1">
+
+                <ImageView
+                    android:id="@+id/userProfileIv"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="#86B5FC"
+                    android:layout_marginStart="20dp"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_add_photo"
+                    android:layout_marginLeft="20dp"
+                    android:contentDescription="@string/username"
+                    tools:ignore="RtlHardcoded" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nameTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Pragati Pal"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:paddingBottom="2dp"
+                        tools:ignore="RtlHardcoded" />
+                    <TextView
+                        android:id="@+id/emailTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="juhipal161@gmail.com"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:paddingBottom="2dp"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/trimesterTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trim1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:paddingBottom="2dp"
+                        tools:ignore="RtlHardcoded" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/layout2"
+                android:layout_below="@id/layout1"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tell_us_more"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:textSize="22sp"/>
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userDetailsEt"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:textSize="18sp"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    tools:ignore="LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userDetailsTv"
+                    android:textSize="18sp"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/userDetailsDoneBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:text="@string/done"
+                    android:textSize="18sp"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/emergency"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:textSize="22sp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:id="@+id/numOne">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/numOneEt"
+                            android:hint="@string/_1st_number"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:importantForAutofill="no"
+                            android:inputType="number" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/numOneTv"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:visibility="gone"/>
+
+
+                        <ImageButton
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/numOneBtn"
+                            android:src="@drawable/ic_send"
+                            android:background="@color/white"
+                            android:contentDescription="@string/send" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_below="@+id/numOne">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/numTwoEt"
+                            android:hint="@string/_2nd_number"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:importantForAutofill="no"
+                            android:inputType="number" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/numTwoTv"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:visibility="gone"/>
+
+
+                        <ImageButton
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:id="@+id/numTwoBtn"
+                            android:src="@drawable/ic_send"
+                            android:background="@color/white"
+                            android:contentDescription="@string/send" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout2"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:text="@string/about_us"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:textSize="18sp"
+                android:id="@+id/aboutBtn"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/aboutBtn"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:text="@string/rate_us"
+                style="@style/viewParent.headerText.homeCardContent"
+                android:textSize="18sp"
+                android:id="@+id/rateBtn"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
