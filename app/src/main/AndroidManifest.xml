@@ -11,12 +11,14 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pregamate">
-        <activity android:name=".UserActivity"></activity>
+        <activity android:name=".UserActivity"
+         android:label="User"
+            android:parentActivityName=".HomeActivity"/>
         <!-- Welcome Activity -->
         <activity
             android:name=".WelcomeActivity"
             android:label="Welcome"
-            android:parentActivityName=".MainActivity"></activity> <!-- Login Activity -->
+            android:parentActivityName=".MainActivity" /> <!-- Login Activity -->
         <activity
             android:name=".LoginActivity"
             android:label="@string/login"

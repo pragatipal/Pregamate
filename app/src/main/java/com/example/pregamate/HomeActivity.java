@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -107,6 +108,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void cardClickListener() {
+
+        ImageView user = findViewById(R.id.user);
+
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
+                startActivity(intent);
+            }
+        });
 
         CardView diets = findViewById(R.id.diets);
         CardView exercises = findViewById(R.id.exercises);

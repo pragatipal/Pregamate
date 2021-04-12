@@ -63,6 +63,8 @@
                         android:layout_below="@id/introTitle"/>
 
                     <ImageView
+                        android:clickable="true"
+                        android:id="@+id/user"
                         android:maxHeight="120dp"
                         android:src="@drawable/ic_first_trim"
                         style="@style/homeCardImage"
