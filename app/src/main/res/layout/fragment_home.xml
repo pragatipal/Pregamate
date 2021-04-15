@@ -4,21 +4,351 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".HomeFragment"
+    style="@style/parent.contentLayout">
 
-    <TextView
-        android:id="@+id/text_home"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
-        />
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/trimesterTitle"
+                    style="@style/viewParent.headerText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trim1" />
+
+                <TextView
+                    android:id="@+id/trimesterDesc"
+                    android:text="You are 11 weeks into the pregnancy journey now"
+                    style="@style/viewParent.headerText.contentText"
+                    android:layout_marginBottom="10dp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true"
+                    android:clickable="true"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="200dp"
+                        android:background="#FDF7FF"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/introTitle"
+                            android:text="Hello Mumma"
+                            android:layout_centerHorizontal="true"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:text="Your baby is now the size of a cute dumpling. Baby is busy developing brain spinal cord and other organs.Also you will finally be able  to hear baby's heartbeat.
+                        Yayy!! "
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:width="200dp"
+                            android:layout_alignParentEnd="true"
+                            android:textAlignment="viewEnd"
+                            android:layout_below="@id/introTitle"/>
+
+                        <ImageView
+                            android:clickable="true"
+                            android:id="@+id/user"
+                            android:maxHeight="120dp"
+                            android:src="@drawable/ic_first_trim"
+                            style="@style/homeCardImage"
+                            android:layout_alignParentStart="true"
+                            android:contentDescription="@string/diet"/>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/diets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    app:cardPreventCornerOverlap="true"
+                    android:clickable="true"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="100dp"
+                        android:background="@drawable/home_gradient_maths"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/dietsTitle"
+                            android:text="@string/diet"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:id="@+id/dietDesc"
+                            android:text="@string/diet_desc"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:layout_below="@id/dietsTitle"/>
+
+                        <ImageView
+                            android:maxHeight="90dp"
+                            android:src="@drawable/ic_diet"
+                            style="@style/homeCardImage"
+                            android:contentDescription="@string/diet"/>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/dietsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diets_content"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/exercises"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true"
+                    app:cardPreventCornerOverlap="true"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="100dp"
+                        android:background="@drawable/home_gradient_maths"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/exercisesTitle"
+                            android:text="@string/exercise"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:id="@+id/exercisesDesc"
+                            android:text="@string/exercise_desc"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:layout_below="@id/exercisesTitle"/>
+
+                        <ImageView
+                            android:maxHeight="90dp"
+                            android:src="@drawable/ic_exercises"
+                            style="@style/homeCardImage"
+                            android:contentDescription="@string/exercise" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/exercisesText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exercises_content"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true"
+                    app:cardPreventCornerOverlap="true"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="100dp"
+                        android:background="@drawable/home_gradient_maths"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/testsTitle"
+                            android:text="@string/tests"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:id="@+id/testsDesc"
+                            android:text="@string/dummy_text"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:layout_below="@id/testsTitle"/>
+
+                        <ImageView
+                            android:maxHeight="90dp"
+                            android:src="@drawable/ic_tests"
+                            style="@style/homeCardImage"
+                            android:contentDescription="@string/tests" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/testsText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tests_content"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/changesMum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true"
+                    app:cardPreventCornerOverlap="true"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="130dp"
+                        android:background="@drawable/home_gradient_maths"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/changesMumTitle"
+                            android:text="@string/changes_in_mum"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:text="@string/dummy_text"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:layout_below="@id/changesMumTitle"/>
+
+                        <ImageView
+                            style="@style/homeCardImage"
+                            android:maxHeight="90dp"
+                            android:src="@drawable/ic_changes_in_mum"
+                            android:contentDescription="@string/changes_in_mum" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/changesMumText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/changes_mum_content"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/babyGrowth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true"
+                    app:cardPreventCornerOverlap="true"
+                    android:layout_marginTop="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="100dp"
+                        android:background="@drawable/home_gradient_maths"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/babyGrowthTitle"
+                            android:text="@string/baby_growth"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:text="@string/dummy_text"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:layout_below="@id/babyGrowthTitle"/>
+
+                        <ImageView
+                            android:maxHeight="85dp"
+                            android:src="@drawable/ic_baby_growth"
+                            style="@style/homeCardImage"
+                            android:contentDescription="@string/baby_growth" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/babyGrowthText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/baby_growth_content"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/doDont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true"
+                    app:cardPreventCornerOverlap="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:focusable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:minHeight="100dp"
+                        android:background="@drawable/home_gradient_maths"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/doDontTitle"
+                            android:text="@string/dos_and_don_ts"
+                            style="@style/viewParent.headerText.HomeCardTitle" />
+
+                        <TextView
+                            android:text="@string/dummy_text"
+                            style="@style/viewParent.headerText.homeCardContent"
+                            android:layout_below="@id/doDontTitle"/>
+
+                        <ImageView
+                            android:maxHeight="90dp"
+                            android:src="@drawable/ic_dondonts"
+                            style="@style/homeCardImage"
+                            android:contentDescription="@string/dos_and_don_ts" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/doDontText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/placeholder_text"
+                    style="@style/viewParent.headerText.homeCardContent"
+                    android:visibility="gone"/>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/nav_user"
     android:layout_height="match_parent"
-    tools:context=".ui.user.UserFragment">
+    tools:context=".UserFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -52,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:text="Pragati Pal"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginRight="5dp"
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         style="@style/viewParent.headerText.homeCardContent"

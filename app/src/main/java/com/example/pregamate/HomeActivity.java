@@ -1,37 +1,25 @@
 package com.example.pregamate;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.pregamate.ui.home.HomeFragment;
-import com.example.pregamate.ui.signout.SignoutFragment;
-import com.example.pregamate.ui.user.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActionBarDrawerToggle toggle;
@@ -40,29 +28,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private int trimsPregnant;
 
-    @SuppressLint("NonConstantResourceId")
-    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = item -> {
-                Fragment fragment=new HomeFragment();
-                switch (item.getItemId()) {
-                    case R.id.bottom_home:
-                        fragment = new HomeFragment();
-                        break;
-                    case R.id.bottom_community:
-                        return true;
-                    case R.id.bottom_emergency:
-                        return true;
-                    case R.id.nav_user:
-                        fragment = new UserFragment();
-                        break;
-                    case R.id.navigationMenu:
-                        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-                        drawer.openDrawer(GravityCompat.START);
-                        return true;
-                }
-                loadFragment(fragment);
-                return false;
-            };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,144 +51,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
-        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-//
+
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) bottomNavigationView.getLayoutParams();
         layoutParams.setBehavior(new BottomNavigationBehavior());
-
-        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
-
-
-        cardClickListener();
-    }
-
-    private void loadFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.drawer_layout, fragment);
-        fragmentTransaction.commit();
-    }
-
-    private void cardClickListener() {
-
-        ImageView user = findViewById(R.id.user);
-
-        user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), UserActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        CardView diets = findViewById(R.id.diets);
-        CardView exercises = findViewById(R.id.exercises);
-        CardView tests = findViewById(R.id.tests);
-        CardView changesMum = findViewById(R.id.changesMum);
-        CardView babyGrowth = findViewById(R.id.babyGrowth);
-        CardView doDont = findViewById(R.id.doDont);
-
-        TextView dietsTv = findViewById(R.id.dietsText);
-        TextView exercisesTv = findViewById(R.id.exercisesText);
-        TextView testsTv = findViewById(R.id.testsText);
-        TextView changesMumTv = findViewById(R.id.changesMumText);
-        TextView babyGrowthTv = findViewById(R.id.babyGrowthText);
-        TextView doDontTv = findViewById(R.id.doDontText);
-
-        Intent intent = getIntent();
-        int trimsPregnant = intent.getIntExtra("trimsPregnant", 1);
-
-        TextView trimesterTitle = findViewById(R.id.trimesterTitle);
-        TextView trimesterDesc = findViewById(R.id.trimesterDesc);
-
-//        FirebaseFirestore db = FirebaseFirestore.getInstance();
-//
-//        DocumentReference docRef = db.collection("Trimesters").document("First");
-//
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        dietsTv.setText(document.getString("Diets"));
-//                    }
-//                    else {
-//                        Toast.makeText(getApplicationContext(), "No such field", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                else {
-//                    Toast.makeText(getApplicationContext(), "No such document", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
-//        if (trimsPregnant==1){
-//           trimesterTitle.setText(R.string.trim1);
-//           trimesterDesc.setText(R.string.trim1Desc);
-//        }
-//        else if (trimsPregnant==2){
-//            trimesterTitle.setText(R.string.trim2);
-//            trimesterDesc.setText(R.string.trim2Desc);
-//        }
-//        else if (trimsPregnant==3){
-//            trimesterTitle.setText(R.string.trim3);
-//            trimesterDesc.setText(R.string.trim3Desc);
-//        }
-
-        diets.setOnClickListener(v -> {
-            if (dietsTv.getVisibility()== View.GONE){
-                dietsTv.setVisibility(View.VISIBLE);
-            }
-            else {
-                dietsTv.setVisibility(View.GONE);
-            }
-        });
-        exercises.setOnClickListener(v -> {
-            if (exercisesTv.getVisibility()== View.GONE){
-                exercisesTv.setVisibility(View.VISIBLE);
-            }
-            else {
-                exercisesTv.setVisibility(View.GONE);
-            }
-        });
-        tests.setOnClickListener(v -> {
-            if (testsTv.getVisibility()== View.GONE){
-                testsTv.setVisibility(View.VISIBLE);
-            }
-            else {
-                testsTv.setVisibility(View.GONE);
-            }
-        });
-        changesMum.setOnClickListener(v -> {
-            if (changesMumTv.getVisibility()== View.GONE){
-                changesMumTv.setVisibility(View.VISIBLE);
-            }
-            else {
-                changesMumTv.setVisibility(View.GONE);
-            }
-        });
-        babyGrowth.setOnClickListener(v -> {
-            if (babyGrowthTv.getVisibility()== View.GONE){
-                babyGrowthTv.setVisibility(View.VISIBLE);
-            }
-            else {
-                babyGrowthTv.setVisibility(View.GONE);
-            }
-        });
-        doDont.setOnClickListener(v -> {
-            if (doDontTv.getVisibility()== View.GONE){
-                doDontTv.setVisibility(View.VISIBLE);
-            }
-            else {
-                doDontTv.setVisibility(View.GONE);
-            }
-        });
-
     }
 
     @Override
@@ -235,25 +68,24 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            return true;
-        } else if (id == R.id.nav_user) {
-            loadFragment(new UserFragment());
-        }
-        else if (id == R.id.nav_signout) {
-            loadFragment(new SignoutFragment());
-            return true;
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+//    @SuppressWarnings("StatementWithEmptyBody")
+//    @Override
+//    public boolean onNavigationItemSelected(MenuItem item) {
+//        // Handle navigation view item clicks here.
+//        int id = item.getItemId();
+//
+//        if (id == R.id.nav_home) {
+//            return true;
+//        } else if (id == R.id.nav_user) {
+//            return true;
+//        }
+//        else if (id == R.id.nav_signout) {
+//            return true;
+//        }
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
+//        return true;
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
